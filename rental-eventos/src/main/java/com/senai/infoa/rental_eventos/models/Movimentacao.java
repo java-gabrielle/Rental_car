@@ -1,7 +1,6 @@
 package com.senai.infoa.rental_eventos.models;
 
 import java.security.Timestamp;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -110,10 +109,7 @@ public class Movimentacao {
         this.usuario = usuario;
     }
 
-    
 
 
-
-   
     
 }

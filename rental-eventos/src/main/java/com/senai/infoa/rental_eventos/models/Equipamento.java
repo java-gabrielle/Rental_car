@@ -1,11 +1,13 @@
 package com.senai.infoa.rental_eventos.models;
 
+import java.math.BigDecimal;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Column;
 
 @Entity
 @Table(name= "Equipamento")
@@ -33,8 +35,8 @@ public class Equipamento {
     @Column(name= "material")
     private  String material;
 
-    @Column(name="peso_decimal")
-    private  String peso_decimal;
+    @Column(name="peso")
+    private  BigDecimal peso;
 
     @Column(name="dimensao")
     private  String dimensao;
@@ -42,87 +44,112 @@ public class Equipamento {
     @Column(name="cor")
     private  String cor;
 
+    
+
  public  Equipamento(){
+ }
 
-    }
-
-  public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getmarca() {
-        return marca;
-    }
-
-    public void setmarca(String marca) {
-        this.marca = marca;
-    }
+ 
 
 
-   // public String getQuantidade_disponivel() {
-    //  return quantidade_disponivel;
-    //}
-
-    public void setQuantidade_disponivel(String Quantidade_disponivel) {
-      //  this.Quantidade_disponivel = Quantidade_disponivel;
-    //}
-
-    //public String getSenha() {
-      //  return modelo;
-    //}
-
-       public String getpotencia() {
-        return potencia;
-    }
-
-    public void setptencia(String potencia) {
-        this.potencia = potencia;
-    }
-
-
-       public String getcategoria() {
-        return categoria;
-    }
-
-    public void setcategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-      public String getmaterial() {
-        return material;
-    }
-
-    public void setmaterial(String material) {
-        this.material = material;
-    }
-
-    public String getpeso_decimal() {
-        return peso_decimal;
-    }
-    public void setpeso_decimal(String peso_decimal) {
-        this.peso_decimal = peso_decimal;
-    }
-
-     public String getdimensao() {
-        return dimensao;
-    }
-    public void setdimensao(String dimensao) {
-        this.dimensao = dimensao;
-    }
-
-       public String getcor() {
-        return cor;
-    }
-    public void setcor(String cor) {
-        this.cor = cor;
-    }
+ public Equipamento(Integer id, String marca, String modelo, int quantidade_disponivel, String categoria,
+        String potencia, String material, BigDecimal peso, String dimensao, String cor) {
+    this.id = id;
+    this.marca = marca;
+    this.modelo = modelo;
+    Quantidade_disponivel = quantidade_disponivel;
+    this.categoria = categoria;
+    this.potencia = potencia;
+    this.material = material;
+    this.peso = peso;
+    this.dimensao = dimensao;
+    this.cor = cor;
+}
 
 
 
 
+ public Integer getId() {
+    return id;
+ }
 
+ public void setId(Integer id) {
+    this.id = id;
+ }
+
+ public String getMarca() {
+    return marca;
+ }
+
+ public void setMarca(String marca) {
+    this.marca = marca;
+ }
+
+ public String getModelo() {
+    return modelo;
+ }
+
+ public void setModelo(String modelo) {
+    this.modelo = modelo;
+ }
+
+ public int getQuantidade_disponivel() {
+    return Quantidade_disponivel;
+ }
+
+ public void setQuantidade_disponivel(int quantidade_disponivel) {
+    Quantidade_disponivel = quantidade_disponivel;
+ }
+
+ public String getCategoria() {
+    return categoria;
+ }
+
+ public void setCategoria(String categoria) {
+    this.categoria = categoria;
+ }
+
+ public String getPotencia() {
+    return potencia;
+ }
+
+ public void setPotencia(String potencia) {
+    this.potencia = potencia;
+ }
+
+ public String getMaterial() {
+    return material;
+ }
+
+ public void setMaterial(String material) {
+    this.material = material;
+ }
+
+ public BigDecimal getPeso() {
+    return peso;
+ }
+
+ public void setPeso(BigDecimal peso) {
+    this.peso = peso;
+ }
+
+ public String getDimensao() {
+    return dimensao;
+ }
+
+ public void setDimensao(String dimensao) {
+    this.dimensao = dimensao;
+ }
+
+ public String getCor() {
+    return cor;
+ }
+
+ public void setCor(String cor) {
+    this.cor = cor;
+ }
+
+
+
+  
 }
