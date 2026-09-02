@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RentalEventosApplication<rental-eventos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.senai.infoa.rental_eventos.RentalEventosApplication",
+            "projectName": "rental-eventos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
