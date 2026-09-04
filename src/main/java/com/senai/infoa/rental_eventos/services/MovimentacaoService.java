@@ -1,7 +1,5 @@
 package com.senai.infoa.rental_eventos.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,21 +9,12 @@ import com.senai.infoa.rental_eventos.repositories.MovimentacaoRepository;
 public class MovimentacaoService {
 
     @Autowired
-    private MovimentacaoRepository movimentacaoRepository;
+    private MovimentacaoRepository ur;
 
-     public List<Movimentacao> listarTodos(){ 
-        return movimentacaoRepository.findAll();
 
+     public Movimentacao salvar(Movimentacao movimentacao){
+        if(movimentacao != null) {}
+        return ur.save(movimentacao);
     }
-        public Movimentacao buscarPorId(Integer id) {
-             return movimentacaoRepository.findById(id).orElse(null);
-        } 
-        
-        public Movimentacao salvar(Movimentacao movimentacao) {
-             return movimentacaoRepository.save(movimentacao);
-        } 
-        
-        public void excluir(Integer id) {
-             movimentacaoRepository.deleteById(id);
-        }    
+
 }

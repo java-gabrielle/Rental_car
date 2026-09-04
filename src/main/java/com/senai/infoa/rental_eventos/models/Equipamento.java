@@ -1,12 +1,17 @@
 package com.senai.infoa.rental_eventos.models;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,7 +29,7 @@ public class Equipamento {
     private String modelo;
 
     @Column(name= "Quantidade_disponivel")
-    private int Quantidade_disponivel;
+    private int quantidadeDisponivel;
 
     @Column(name= "categoria")
     private String categoria;
@@ -44,6 +49,15 @@ public class Equipamento {
     @Column(name="cor")
     private  String cor;
 
+     @ManyToMany
+    @JoinTable(
+        name = "equipamento_movimentacao",
+        joinColumns = @JoinColumn(name = "equipamento_id"),
+        inverseJoinColumns = @JoinColumn(name= "movimentacao_id")
+    )
+    private Set<Movimentacao> movimentacoes = new HashSet<>();
+    
+
     
 
  public  Equipamento(){
@@ -52,19 +66,24 @@ public class Equipamento {
  
 
 
- public Equipamento(Integer id, String marca, String modelo, int quantidade_disponivel, String categoria,
-        String potencia, String material, BigDecimal peso, String dimensao, String cor) {
-    this.id = id;
-    this.marca = marca;
-    this.modelo = modelo;
-    Quantidade_disponivel = quantidade_disponivel;
-    this.categoria = categoria;
-    this.potencia = potencia;
-    this.material = material;
-    this.peso = peso;
-    this.dimensao = dimensao;
-    this.cor = cor;
+
+
+ public Equipamento(Integer id, String marca, String modelo, int quantidadeDisponivel, String categoria, String potencia,
+      String material, BigDecimal peso, String dimensao, String cor, Set<Movimentacao> movimentacoes) {
+   this.id = id;
+   this.marca = marca;
+   this.modelo = modelo;
+   this.quantidadeDisponivel = quantidadeDisponivel;
+   this.categoria = categoria;
+   this.potencia = potencia;
+   this.material = material;
+   this.peso = peso;
+   this.dimensao = dimensao;
+   this.cor = cor;
+   this.movimentacoes = movimentacoes;
 }
+
+
 
 
 
@@ -93,13 +112,43 @@ public class Equipamento {
     this.modelo = modelo;
  }
 
- public int getQuantidade_disponivel() {
-    return Quantidade_disponivel;
+ 
+
+ public int getQuantidadeDisponivel() {
+   return quantidadeDisponivel;
+}
+
+
+
+
+
+
+ public void setQuantidadeDisponivel(int quantidadeDisponivel) {
+   this.quantidadeDisponivel = quantidadeDisponivel;
  }
 
- public void setQuantidade_disponivel(int quantidade_disponivel) {
-    Quantidade_disponivel = quantidade_disponivel;
+
+
+
+
+
+ public Set<Movimentacao> getMovimentacoes() {
+   return movimentacoes;
  }
+
+
+
+
+
+
+ public void setMovimentacoes(Set<Movimentacao> movimentacoes) {
+   this.movimentacoes = movimentacoes;
+ }
+
+
+
+
+
 
  public String getCategoria() {
     return categoria;

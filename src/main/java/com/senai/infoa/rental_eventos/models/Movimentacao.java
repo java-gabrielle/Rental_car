@@ -22,10 +22,10 @@ public class Movimentacao {
     private Integer id;
 
     @Column(name="data_movimento")
-    private Timestamp data_movimento;
+    private Timestamp dataMovimento;
 
     @Column(name="tipo_movimentacao")
-    private String tipo_movimentacao;
+    private String tipoMovimentacao;
 
     @Column(name="quantidade")
     private String quantidade;
@@ -41,14 +41,18 @@ public class Movimentacao {
 
 
 
-    public Movimentacao(Integer id, Timestamp data_movimento, String tipo_movimentacao, String quantidade,
-          Usuario usuario) {
+
+
+    public Movimentacao(Integer id, Timestamp dataMovimento, String tipoMovimentacao, String quantidade,
+            Usuario usuario) {
         this.id = id;
-        this.data_movimento = data_movimento;
-        this.tipo_movimentacao = tipo_movimentacao;
+        this.dataMovimento = dataMovimento;
+        this.tipoMovimentacao = tipoMovimentacao;
         this.quantidade = quantidade;
         this.usuario = usuario;
     }
+
+
 
 
 
@@ -64,27 +68,38 @@ public class Movimentacao {
 
 
 
-    public Timestamp getData_movimento() {
-        return data_movimento;
+    
+
+
+    public Timestamp getDataMovimento() {
+        return dataMovimento;
     }
 
 
 
-    public void setData_movimento(Timestamp data_movimento) {
-        this.data_movimento = data_movimento;
+
+
+    public void setDataMovimento(Timestamp dataMovimento) {
+        this.dataMovimento = dataMovimento;
     }
 
 
 
-    public String getTipo_movimentacao() {
-        return tipo_movimentacao;
+
+
+    public String getTipoMovimentacao() {
+        return tipoMovimentacao;
     }
 
 
 
-    public void setTipo_movimentacao(String tipo_movimentacao) {
-        this.tipo_movimentacao = tipo_movimentacao;
+
+
+    public void setTipoMovimentacao(String tipoMovimentacao) {
+        this.tipoMovimentacao = tipoMovimentacao;
     }
+
+
 
 
 
