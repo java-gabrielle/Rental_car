@@ -11,7 +11,7 @@ public class UsuarioService {
 
 
   @Autowired
-    private UsuarioRepository ur;
+  private UsuarioRepository ur;
 
     public Usuario salvar(Usuario usuario){
         if(usuario != null) {
@@ -21,7 +21,7 @@ public class UsuarioService {
     }
 
 
-
+/* 
     public Usuario login(String email, String senha){
         Usuario usuario = ur.findByUsuario(email, senha);
             if(usuario != null && senha.equals(usuario.getSenha())){
@@ -29,7 +29,7 @@ public class UsuarioService {
             }
         return null;
     }
-
+*/
     public Usuario atualizar(Usuario usuario, Integer id) {
     // 1. Busca no banco pelo ID (Integer)
     Usuario usuarioBanco = ur.findById(id).orElse(null);

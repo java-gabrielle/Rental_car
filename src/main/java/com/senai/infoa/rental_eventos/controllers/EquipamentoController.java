@@ -1,15 +1,18 @@
 package com.senai.infoa.rental_eventos.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
-import java.util.List;
+
 import com.senai.infoa.rental_eventos.models.Equipamento;
+
 import com.senai.infoa.rental_eventos.services.EquipamentoService;
 
 @RestController
@@ -17,21 +20,36 @@ import com.senai.infoa.rental_eventos.services.EquipamentoService;
 public class EquipamentoController {
 
     @Autowired
-    private EquipamentoService service;
+    private EquipamentoService us;
 
-    @GetMapping
-    public List<Equipamento> listar() {
-        return service.listarTodos();
-    }
-
-    @PostMapping
+    @PostMapping("/cadastrar")
     public Equipamento salvar(@RequestBody Equipamento equipamento) {
-        return service.salvar(equipamento);
+        return us.salvar(equipamento);
+    }  
+
+    @PutMapping("/atualizar/{id}")
+    public Equipamento atualizar(@PathVariable Integer id, @RequestBody Equipamento equipamento) {
+        return us.atualizar(equipamento, id);
     }
 
-    @DeleteMapping
-    public void excluir(@PathVariable Integer id) {
-        service.excluir(id);
-    }
+
     
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<Equipamento> buscarPorId(@PathVariable Integer id) {
+        Equipamento equipamento = us.buscarPorId(id);
+        return ResponseEntity.ok(equipamento);
+    }
+
+
+
+    @DeleteMapping("/delete/{id}")
+    public String apagar(@PathVariable Integer id) {
+        boolean apagou = us.apagar(id);
+        if (apagou) {
+            return "Equipamento removido com sucesso";
+        }
+        return "Falha ao remover o equipamento";
+    }
+
+
 }

@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +30,7 @@ public class Equipamento {
     @Column(name= "modelo")
     private String modelo;
 
-    @Column(name= "Quantidade_disponivel")
+    @Column(name= "quantidade_disponivel")
     private int quantidadeDisponivel;
 
     @Column(name= "categoria")
@@ -49,6 +51,8 @@ public class Equipamento {
     @Column(name="cor")
     private  String cor;
 
+
+    @JsonIgnore
      @ManyToMany
     @JoinTable(
         name = "equipamento_movimentacao",

@@ -8,25 +8,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.infoa.rental_eventos.models.Usuario;
 import com.senai.infoa.rental_eventos.services.UsuarioService;
 
+@RestController 
+@RequestMapping("/usuario") 
 public class UsuarioController {
- @Autowired
+    
+    @Autowired
     private UsuarioService us;
 
     @PostMapping("/cadastrar")
     public Usuario salvar(@RequestBody Usuario usuario) {
         return us.salvar(usuario);
     }
-
+/* 
     @PostMapping("/login")
     public Usuario login(@RequestParam String email, @RequestParam String senha) {
         return us.login(email, senha);
     }
-
+*/
    @PutMapping("/atualizar/{id}")
     public Usuario atualizar(@PathVariable Integer id, @RequestBody Usuario usuario) {
         return us.atualizar(usuario, id);

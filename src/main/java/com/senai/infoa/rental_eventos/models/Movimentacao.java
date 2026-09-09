@@ -1,6 +1,7 @@
 package com.senai.infoa.rental_eventos.models;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +23,7 @@ public class Movimentacao {
     private Integer id;
 
     @Column(name="data_movimento")
-    private Timestamp dataMovimento;
+    private LocalDateTime dataMovimento;
 
     @Column(name="tipo_movimentacao")
     private String tipoMovimentacao;
@@ -30,6 +31,8 @@ public class Movimentacao {
     @Column(name="quantidade")
     private String quantidade;
 
+
+    
     @ManyToOne
     @JoinColumn(name="usuario_id")
     private Usuario usuario;
@@ -40,10 +43,7 @@ public class Movimentacao {
     }
 
 
-
-
-
-    public Movimentacao(Integer id, Timestamp dataMovimento, String tipoMovimentacao, String quantidade,
+    public Movimentacao(Integer id, LocalDateTime dataMovimento, String tipoMovimentacao, String quantidade,
             Usuario usuario) {
         this.id = id;
         this.dataMovimento = dataMovimento;
@@ -71,7 +71,7 @@ public class Movimentacao {
     
 
 
-    public Timestamp getDataMovimento() {
+    public LocalDateTime getDataMovimento() {
         return dataMovimento;
     }
 
@@ -79,7 +79,7 @@ public class Movimentacao {
 
 
 
-    public void setDataMovimento(Timestamp dataMovimento) {
+    public void setDataMovimento(LocalDateTime dataMovimento) {
         this.dataMovimento = dataMovimento;
     }
 
